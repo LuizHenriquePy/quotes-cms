@@ -1,0 +1,7 @@
+services:
+  mongodb:
+    container_name: car_shop_db
+    image: mongo:5.0.7
+    restart: always
+    ports:
+      - 27017:27017
