@@ -16,7 +16,7 @@ describe('Controller QuoteController', () => {
     const req = jest.fn() as unknown as Request
     const next  = jest.fn() as unknown as NextFunction
 
-    await new QuoteController(service, res, req, next).getAll()
+    await new QuoteController(service, req, res, next).getAll()
 
     expect(status).toHaveBeenCalledWith(statusCode.ok)
     expect(json).toHaveBeenCalledWith(mockQuotes)
