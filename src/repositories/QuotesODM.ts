@@ -1,5 +1,5 @@
 import { Model, Schema, model } from "mongoose";
-import IQuote from "../api/interfaces/IQuote";
+import IQuote from "../interfaces/IQuote";
 
 class QuotesODM {
   private model: Model<IQuote>

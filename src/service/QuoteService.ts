@@ -1,4 +1,4 @@
-import QuotesODM from "../../database/QuotesODM"
+import QuotesODM from "../../repositories/QuotesODM"
 import IQuote from "../interfaces/IQuote"
 import IQuoteService from "../interfaces/IQuoteService"
 

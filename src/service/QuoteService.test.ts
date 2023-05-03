@@ -1,7 +1,7 @@
 import { Model } from "mongoose"
 import IQuote from "../interfaces/IQuote"
 import QuoteService from "./QuoteService"
-import QuotesODM from "../../database/QuotesODM"
+import QuotesODM from "../../repositories/QuotesODM"
 import { mockQuotes } from "../tests/mocks"
 
 describe('Service QuoteService', () => {

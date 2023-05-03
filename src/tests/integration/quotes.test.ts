@@ -1,6 +1,6 @@
 import request from "supertest"
 import app from "../../app"
-import QuotesODM from "../../../database/QuotesODM"
+import QuotesODM from "../../../repositories/QuotesODM"
 import { mockQuotes } from "../mocks"
 import statusCode from "../../utils/statusCode"
 
