@@ -10,7 +10,7 @@ router.get(
     req: Request,
     res: Response,
     next: NextFunction
-  ) => new QuoteController(new QuoteService(), req, res, next).getAll()
+  ) => new QuoteController(req, res, next).getAll()
 )
 
 export default router

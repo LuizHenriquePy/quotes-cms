@@ -1,7 +1,8 @@
 import { Model, Schema, model } from "mongoose";
-import ICategory from "../api/interfaces/ICategory";
+import ICategory from "../interfaces/ICategory";
+import ICategoryRepository from "../interfaces/ICategoryRepository";
 
-class CategoriesODM {
+class CategoryRepository implements ICategoryRepository {
   private model: Model<ICategory>
 
   constructor() {
@@ -17,4 +18,4 @@ class CategoriesODM {
   }
 }
 
-export default new CategoriesODM()
+export default new CategoryRepository()

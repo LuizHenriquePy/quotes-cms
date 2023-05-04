@@ -1,4 +1,4 @@
-import IQuote from "../../interfaces/IQuote";
+import IQuote from "../../src/interfaces/IQuote";
 
 const mockQuotes: IQuote[] = [
   {

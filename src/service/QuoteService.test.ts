@@ -1,14 +1,15 @@
 import { Model } from "mongoose"
 import IQuote from "../interfaces/IQuote"
 import QuoteService from "./QuoteService"
-import QuotesODM from "../../repositories/QuotesODM"
-import { mockQuotes } from "../tests/mocks"
+import { mockQuotes } from "../../tests/mocks"
+import InMemoryQuoteRepository from "../../tests/repositories/InMemoryQuoteRepository"
 
 describe('Service QuoteService', () => {
   it('Retornar todas as citações', async () => {
-    const spyModel = jest.spyOn(QuotesODM, 'getAll').mockImplementation(() => Promise.resolve(mockQuotes)) 
+    const inMemoryQuoteRepository = new InMemoryQuoteRepository()
+    const quoteService = new QuoteService(inMemoryQuoteRepository)
 
-    const result = await new QuoteService().getAll()
+    const result = await quoteService.getAll()
 
     expect(result).toEqual(mockQuotes)
   })

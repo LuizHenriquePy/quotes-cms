@@ -1,13 +1,14 @@
-import QuotesODM from "../../repositories/QuotesODM"
 import IQuote from "../interfaces/IQuote"
+import IQuoteRepository from "../interfaces/IQuoteRepository"
 import IQuoteService from "../interfaces/IQuoteService"
 
 export default class QuoteService implements IQuoteService {
-  private model = QuotesODM
+  constructor(
+    private quoteRepository: IQuoteRepository
+  ) {}
 
   public async getAll(): Promise<IQuote[]> {
-    const quotes = await this.model.getAll()
+    const quotes = await this.quoteRepository.getAll()
     return quotes
   }
-
 }

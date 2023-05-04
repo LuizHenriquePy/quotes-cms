@@ -1,7 +1,8 @@
 import { Model, Schema, model } from "mongoose";
 import IQuote from "../interfaces/IQuote";
+import IQuoteRepository from "../interfaces/IQuoteRepository";
 
-class QuotesODM {
+export default class QuoteRepository implements IQuoteRepository {
   private model: Model<IQuote>
 
   constructor() {
@@ -18,5 +19,3 @@ class QuotesODM {
     return quotes
   }
 }
-
-export default new QuotesODM()
