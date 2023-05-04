@@ -8,7 +8,7 @@ import IQuoteService from "../interfaces/IQuoteService"
 
 describe('Controller QuoteController', () => {
   afterEach(() => jest.clearAllMocks())
-  it('Testa método getAll', async () => {
+  it('Return all quotes', async () => {
     const json = jest.fn()
     const res = {
       status: jest.fn(() => ({ json }))
