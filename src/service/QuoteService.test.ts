@@ -1,11 +1,13 @@
-import { Model } from "mongoose"
-import IQuote from "../interfaces/IQuote"
 import QuoteService from "./QuoteService"
 import { mockQuotes } from "../../tests/mocks"
 import InMemoryQuoteRepository from "../../tests/repositories/InMemoryQuoteRepository"
+import IQuoteRepository from "../interfaces/IQuoteRepository"
+import ErrorGenerator from "../utils/ErrorGenerator"
+import statusCode from "../utils/statusCode"
 
 describe('Service QuoteService', () => {
-  it('Retornar todas as citações', async () => {
+
+  it('Return all quotes', async () => {
     const inMemoryQuoteRepository = new InMemoryQuoteRepository()
     const quoteService = new QuoteService(inMemoryQuoteRepository)
 
@@ -13,5 +15,19 @@ describe('Service QuoteService', () => {
 
     expect(result).toEqual(mockQuotes)
   })
-  // it('Chama o objeto ErrorGenerator quando banco de dados falha')
+
+  it('Calls ErrorGenerator object when database fails', async () => {
+    const quoteService = new QuoteService({
+      getAll: () => Promise.reject()
+    } as IQuoteRepository)
+
+    try {
+      await quoteService.getAll() as unknown as ErrorGenerator
+    } catch (error: any) {
+      expect(error).toBeInstanceOf(ErrorGenerator)
+      expect(error.message).toEqual('Error when trying to connect database')
+      expect(error.type).toEqual(statusCode.internalServerError)
+    }
+  })
+
 })
