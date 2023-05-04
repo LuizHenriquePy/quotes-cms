@@ -7,13 +7,24 @@ import QuoteRepository from "../../src/repositories/QuoteRepository"
 describe('[E2E] Quotes', () => {
   afterEach(() => jest.clearAllMocks())
 
-  it('Testa se é possível retornar todas as Quotes', async () => {
+  it('Return all quotes', async () => {
     const spyModel = jest.spyOn(QuoteRepository.prototype, 'getAll')
       .mockImplementation(() => Promise.resolve(mockQuotes))
     
-      const result = await request(app).get('/quotes')
+    const result = await request(app).get('/quotes')
 
     expect(result.status).toEqual(statusCode.ok)
     expect(result.body).toEqual(mockQuotes)
   })
+
+  it('Calls ErrorGenerator object when database fails', async () => {
+    const spyModel = jest.spyOn(QuoteRepository.prototype, 'getAll')
+      .mockImplementation(() => Promise.reject())
+
+    const result = await request(app).get('/quotes')
+
+    expect(result.status).toEqual(statusCode.internalServerError)
+    expect(result.body.message).toEqual('Error when trying to connect database')
+  })
+
 })

@@ -1,4 +1,4 @@
-import { Model, Schema, model } from "mongoose";
+import { Model, Schema, model, models } from "mongoose";
 import ICategory from "../interfaces/ICategory";
 import ICategoryRepository from "../interfaces/ICategoryRepository";
 
@@ -9,7 +9,7 @@ class CategoryRepository implements ICategoryRepository {
     const schema = new Schema<ICategory>({
       name: { type: String, required: true }
     })
-    this.model = model<ICategory>('Category', schema)
+    this.model = models['Category'] || model<ICategory>('Category', schema)
   }
 
   public async getAll(): Promise<ICategory[]> {
