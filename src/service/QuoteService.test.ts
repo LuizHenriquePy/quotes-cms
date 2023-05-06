@@ -5,7 +5,7 @@ import IQuoteRepository from "../interfaces/IQuoteRepository"
 import ErrorGenerator from "../utils/ErrorGenerator"
 import statusCode from "../utils/statusCode"
 
-describe('Service QuoteService', () => {
+describe('[ UNIT ] Service QuoteService', () => {
 
   it('Return all quotes', async () => {
     const inMemoryQuoteRepository = new InMemoryQuoteRepository()

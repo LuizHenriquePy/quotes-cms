@@ -6,7 +6,7 @@ import QuoteController from "./QuoteController";
 import QuoteService from "../service/QuoteService";
 import IQuoteService from "../interfaces/IQuoteService"
 
-describe('Controller QuoteController', () => {
+describe('[ UNIT ] Controller QuoteController', () => {
   afterEach(() => jest.clearAllMocks())
   it('Return all quotes', async () => {
     const json = jest.fn()

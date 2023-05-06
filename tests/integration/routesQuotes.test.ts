@@ -4,7 +4,7 @@ import { mockQuotes } from "../mocks"
 import statusCode from "../../src/utils/statusCode"
 import QuoteRepository from "../../src/repositories/QuoteRepository"
 
-describe('[Integration] Quotes', () => {
+describe('[ INTEGRATION ] Routes quotes', () => {
   afterEach(() => jest.clearAllMocks())
 
   it('Return all quotes', async () => {
