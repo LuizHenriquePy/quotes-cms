@@ -5,22 +5,21 @@ import CategoryRepository from "../src/repositories/CategoryRepository"
 import QuoteRepository from "../src/repositories/QuoteRepository"
 import connectToDatabase from "./connection"
 
-const categoriesSeed: ICategory[] = [
-  {
-    name: 'história'
-  },
-  {
-    name: 'filosofia'
-  },
-  {
-    name: 'humor'
-  }
-]
-async function main() {
+export default async function seeds() {
+  const categoriesSeed: ICategory[] = [
+    {
+      name: 'história'
+    },
+    {
+      name: 'filosofia'
+    },
+    {
+      name: 'humor'
+    }
+  ]
   connectToDatabase()
   const categoryRepository = new CategoryRepository()
   const quoteRepository = new QuoteRepository()
-  console.log('categories')
   const categories = await categoryRepository.addMany(categoriesSeed) as any
   const quotesSeed: IQuote[] = [
     {
@@ -44,4 +43,4 @@ async function main() {
   console.log("[SEEDS] Data added to the database!")
 }
 
-main()
+seeds()

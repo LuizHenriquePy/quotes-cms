@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test:unit": "jest --testPathIgnorePatterns=/test --verbose",
-    "test:integration": "jest --testPathPattern=/tests/integration",
-    "test:e2e": "jest --testPathPattern=/tests/e2e",
+    "test:integration": "jest --testPathPattern=/tests/integration --verbose",
+    "test:e2e": "jest --testPathPattern=/tests/e2e --verbose",
     "test:dev": "jest --watch",
     "start": "ts-node ./src/server.ts",
     "dev": "nodemon ./src/server.ts",
-    "reset:db": "ts-node ./mongoose/seeds.ts"
+    "reset:db": "ts-node ./mongoose/DBCleaned.ts && ts-node ./mongoose/seeds.ts"
   },
   "keywords": [],
   "author": "",
