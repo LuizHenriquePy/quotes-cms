@@ -16,7 +16,8 @@ export default class QuoteService implements IQuoteService {
     } catch (error) {
       throw new ErrorGenerator(
         'Error when trying to connect database',
-        statusCode.internalServerError
+        statusCode.internalServerError,
+        error as Error
       )
     }
   }

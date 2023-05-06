@@ -7,7 +7,8 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "start": "ts-node ./src/server.ts",
-    "dev": "nodemon ./src/api/server.ts"
+    "dev": "nodemon ./src/server.ts",
+    "reset:db": "ts-node ./mongoose/seeds.ts"
   },
   "keywords": [],
   "author": "",

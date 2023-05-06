@@ -3,7 +3,7 @@ import ErrorGenerator from "../utils/ErrorGenerator";
 import statusCode from "../utils/statusCode";
 
 export default (error: any, req: Request, res: Response, next: NextFunction) => {
-  console.log('Error: ', error)
+  console.log('Error: ', error.error)
   if (error.type) {
     return res
       .status(error.type)
