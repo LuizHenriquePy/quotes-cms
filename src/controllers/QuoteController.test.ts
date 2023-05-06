@@ -18,7 +18,7 @@ describe('Controller QuoteController', () => {
     const spyQuoteService = jest.spyOn(QuoteService.prototype, "getAll")
       .mockResolvedValue(mockQuotes)
 
-    await new QuoteController(req, res, next).getAll()
+    await new QuoteController().getAll(req, res, next)
 
     expect(res.status).toHaveBeenCalledWith(statusCode.ok)
     expect(json).toHaveBeenCalledWith(mockQuotes)

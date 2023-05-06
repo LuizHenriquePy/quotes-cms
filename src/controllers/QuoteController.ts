@@ -6,17 +6,13 @@ import QuoteService from "../service/QuoteService";
 
 export default class QuoteController {
   private quoteService: IQuoteService
-  constructor(
-    private req: Request,
-    private res: Response,
-    private next: NextFunction
-  ) {
+  constructor() {
     const repository = new QuoteRepository()
     this.quoteService = new QuoteService(repository)
   }
 
-  public async getAll() {
+  public getAll = async (req: Request, res: Response, next: NextFunction) => {
     const quotes = await this.quoteService.getAll()
-    return this.res.status(statusCode.ok).json(quotes)
+    return res.status(statusCode.ok).json(quotes)
   }
 }
