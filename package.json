@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:dev": "jest --watch",
-    "start": "ts-node ./src/api/server.ts",
+    "start": "ts-node ./src/server.ts",
     "dev": "nodemon ./src/api/server.ts"
   },
   "keywords": [],
