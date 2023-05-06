@@ -9,12 +9,6 @@ export default class QuoteRepository extends AbstractODM implements IQuoteReposi
   constructor() {
     super()
     this.model = this.quoteModel
-    /* const schema = new Schema<IQuote>({
-      categoriesId: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
-      content: { type: String, required: true },
-      creator: { type: String, required: true }
-    }, { timestamps: true })
-    this.model = models['Quote'] || model<IQuote>('Quote', schema) */
   }
 
   public async getAll(): Promise<IQuote[]> {

@@ -9,10 +9,6 @@ export default class CategoryRepository extends AbstractODM implements ICategory
   constructor() {
     super()
     this.model = this.categoryModel
-    /* const schema = new Schema<ICategory>({
-      name: { type: String, required: true }
-    })
-    this.model = models['Category'] || model<ICategory>('Category', schema) */
   }
 
   public async getAll(): Promise<ICategory[]> {
