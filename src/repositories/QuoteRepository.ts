@@ -1,4 +1,4 @@
-import { Model, Schema, model, models } from "mongoose";
+import { Model } from "mongoose";
 import IQuote from "../interfaces/IQuote";
 import IQuoteRepository from "../interfaces/IQuoteRepository";
 import AbstractODM from "./AbstractODM";
@@ -19,5 +19,9 @@ export default class QuoteRepository extends AbstractODM implements IQuoteReposi
   public async addMany(quotes: IQuote[]): Promise<IQuote[]> {
     const result = await this.model.insertMany(quotes)
     return result
+  }
+
+  public async deleteAll(): Promise<void> {
+    await this.model.deleteMany({})
   }
 }

@@ -1,4 +1,4 @@
-import { Model, Schema, model, models } from "mongoose";
+import { Model } from "mongoose";
 import ICategory from "../interfaces/ICategory";
 import ICategoryRepository from "../interfaces/ICategoryRepository";
 import AbstractODM from "./AbstractODM";
@@ -19,5 +19,9 @@ export default class CategoryRepository extends AbstractODM implements ICategory
   public async addMany(categories: ICategory[]): Promise<ICategory[]> {
     const result = await this.model.insertMany(categories)
     return result
+  }
+
+  public async deleteAll(): Promise<void> {
+    await this.model.deleteMany({})
   }
 }
